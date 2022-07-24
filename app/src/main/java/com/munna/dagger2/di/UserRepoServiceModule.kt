@@ -4,14 +4,13 @@ import com.munna.dagger2.model.FCMNotificationServer
 import com.munna.dagger2.model.NotificationService
 import com.munna.dagger2.model.SqlRepository
 import com.munna.dagger2.model.UserRepository
+import dagger.Binds
 import dagger.Module
 import dagger.Provides
 
 @Module
-class UserRepoServiceModule {
+abstract class UserRepoServiceModule {
 
-    @Provides
-    fun userRepoModule(sqlRepository: SqlRepository): UserRepository{
-        return sqlRepository
-    }
+    @Binds
+    abstract fun userRepoModule(sqlRepository: SqlRepository): UserRepository
 }
