@@ -18,8 +18,7 @@ class MainActivity : AppCompatActivity() {
 
         val userR= DaggerUserRegistrationComponent.builder().build()
         userR.inject(this)
-        userRegistrationService.save()
-        emailService.sent()
+        userRegistrationService.save("email@email.com", "password")
         setContentView(R.layout.activity_main)
     }
 }
