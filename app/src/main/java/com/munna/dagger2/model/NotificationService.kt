@@ -6,9 +6,9 @@ interface NotificationService {
     fun notify(email: String)
 }
 
-class EmailService : NotificationService {
+class EmailService(val retry:Int) : NotificationService {
     override fun notify(email: String) {
-        Log.d("test", " Email notification sent $email")
+        Log.d("test", " Email notification sent $email retry $retry")
     }
 
 }

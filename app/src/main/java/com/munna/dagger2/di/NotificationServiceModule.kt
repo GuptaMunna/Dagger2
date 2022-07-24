@@ -18,7 +18,7 @@ class NotificationServiceModule {
 
     @Named("email")
     @Provides
-    fun emailNotificationModule(): NotificationService{
-        return EmailService()
+    fun emailNotificationModule(retry:Int): NotificationService{
+        return EmailService(retry)
     }
 }

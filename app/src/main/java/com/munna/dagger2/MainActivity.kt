@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val userR= DaggerUserRegistrationComponent.builder().build()
+        val userR= DaggerUserRegistrationComponent.factory().create(5)
         userR.inject(this)
         userRegistrationService.save("email@email.com", "password")
         setContentView(R.layout.activity_main)
