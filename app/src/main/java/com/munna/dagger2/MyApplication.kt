@@ -1,15 +1,15 @@
 package com.munna.dagger2
 
 import android.app.Application
-import com.munna.dagger2.di.DaggerUserRegistrationComponent
-import com.munna.dagger2.di.UserRegistrationComponent
+import com.munna.dagger2.di.AppComponent
+import com.munna.dagger2.di.DaggerAppComponent
 
 class MyApplication(): Application() {
 
-    lateinit var userRegistrationComponent: UserRegistrationComponent
+    lateinit var appComponent: AppComponent
     override fun onCreate() {
         super.onCreate()
-        userRegistrationComponent= DaggerUserRegistrationComponent.factory().create(5)
+        appComponent=DaggerAppComponent.builder().build()
 
     }
 }

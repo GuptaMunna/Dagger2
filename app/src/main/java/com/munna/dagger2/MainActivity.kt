@@ -1,8 +1,7 @@
 package com.munna.dagger2
 
-import android.app.Application
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.munna.dagger2.di.DaggerUserRegistrationComponent
 import javax.inject.Inject
 
@@ -16,8 +15,10 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val userR= (application as MyApplication).userRegistrationComponent
-        userR.inject(this)
+        val appcom=(application as MyApplication).appComponent
+        val actComponent= DaggerUserRegistrationComponent.factory().create(3,appcom)
+        actComponent.inject(this)
+
         userRegistrationService.save("email@email.com", "password")
         setContentView(R.layout.activity_main)
     }

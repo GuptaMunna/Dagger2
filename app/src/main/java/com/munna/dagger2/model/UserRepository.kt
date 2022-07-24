@@ -1,6 +1,7 @@
 package com.munna.dagger2.model
 
 import android.util.Log
+import com.munna.dagger2.ActivityScope
 import javax.inject.Inject
 
 interface UserRepository {
@@ -9,6 +10,7 @@ interface UserRepository {
 
 }
 
+@ActivityScope
  class SqlRepository @Inject constructor() : UserRepository {
      override fun saveUser(email: String, passwd: String) {
 
